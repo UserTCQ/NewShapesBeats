@@ -10,16 +10,6 @@ public static class Time2
     public static float elapsed;
 }
 
-[Serializable]
-public class GObject
-{
-    public float time;
-    public Vector3 position;
-    public Vector3 rotation;
-    public Vector3 scale;
-    public string[] args;
-    public GameObject spawnObj;
-}
 public class LevelSystem : MonoBehaviour
 {
     public static LevelSystem system;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Initialize : MonoBehaviour
+public class InitializeSettings : MonoBehaviour
 {
     public TextMeshProUGUI song;
     public TextMeshProUGUI author;

@@ -11,6 +11,7 @@ public class LevelList : MonoBehaviour
 
     List<int> levelsToDisplay = new List<int>();
     List<LevelBtn> buttons = new List<LevelBtn>();
+    List<RectTransform> rectTransformsBtn = new List<RectTransform>();
 
     public Level selectedLevel;
 
@@ -28,7 +29,25 @@ public class LevelList : MonoBehaviour
         {
             levelsToDisplay.Add(i);
         }
-        UpdateList();
+        InitializeList();
+    }
+
+    void InitializeList()
+    {
+        container.sizeDelta = new Vector2(container.sizeDelta.x, 50f * levels.Length);
+        for (int i = 0; i < levels.Length; i++)
+        {
+            var go = Instantiate(buttonPrefab, container);
+            var rt = go.GetComponent<RectTransform>();
+            go.SetActive(true);
+            rectTransformsBtn.Add(rt);
+            rt.anchoredPosition = new Vector2(buttonOffsetX, i * -50 + buttonOffsetY);
+            var btn = go.GetComponent<LevelBtn>();
+            btn.songName.text = levels[i].songName;
+            btn.artist.text = levels[i].author;
+            btn.value = i;
+            buttons.Add(btn);
+        }
     }
 
     public void Search()
@@ -47,23 +66,23 @@ public class LevelList : MonoBehaviour
     void UpdateList()
     {
         container.sizeDelta = new Vector2(container.sizeDelta.x, 50f * levelsToDisplay.Count);
-        foreach (var go in buttons)
+        int t = -1;
+        for (int i = 0; i < buttons.Count; i++)
         {
-            Destroy(go.gameObject);
-        }
-        buttons.Clear();
-        for (int i = 0; i < levelsToDisplay.Count; i++)
-        {
-            var go = Instantiate(buttonPrefab, container);
-            go.SetActive(true);
-            go.GetComponent<RectTransform>().anchoredPosition = new Vector2(buttonOffsetX, i * -50 + buttonOffsetY);
-            var btn = go.GetComponent<LevelBtn>();
-            btn.songName.text = levels[levelsToDisplay[i]].songName;
-            btn.artist.text = levels[levelsToDisplay[i]].author;
-            btn.value = levelsToDisplay[i];
-            if (selectedLevel == levels[btn.value])
-                btn.Select();
-            buttons.Add(btn);
+            var btn = buttons[i];
+            btn.Deselect();
+            if (levelsToDisplay.Contains(btn.value))
+            {
+                t++;
+                btn.gameObject.SetActive(true);
+                rectTransformsBtn[i].anchoredPosition = new Vector2(buttonOffsetX, t * -50 + buttonOffsetY);
+                if (levels[btn.value] == selectedLevel)
+                {
+                    btn.Select();
+                }
+            }
+            else
+                btn.gameObject.SetActive(false);
         }
     }
 
