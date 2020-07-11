@@ -14,13 +14,10 @@ public class LevelSystem : MonoBehaviour
 {
     public static LevelSystem system;
 
-    public List<GameObject> objectsToDisable;
-
     public AudioSource source;
 
     public ProgressBar progessBar;
 
-    public Transform container;
     public Transform endLine;
 
     public float minPos;
@@ -29,6 +26,14 @@ public class LevelSystem : MonoBehaviour
 
     public GameObject endScreen;
     public RectTransform endCard;
+
+    public LevelCommands cmdClass;
+
+    public delegate void CommandHandler(string[] args);
+    private Dictionary<string, CommandHandler> commands;
+
+    [SerializeField]
+    private List<GameObject> objectsToDisable;
 
     private bool stop = false;
 
@@ -40,7 +45,7 @@ public class LevelSystem : MonoBehaviour
     private Level level;
 #endif
 
-    void Awake()
+    void Start()
     {
         system = this;
 
@@ -59,7 +64,12 @@ public class LevelSystem : MonoBehaviour
         source.Play();
 #endif
 
-        StartCoroutine(StartTime());
+        commands = new Dictionary<string, CommandHandler>()
+        {
+            { "spawn",  cmdClass.spawn }
+        };
+
+        StartCoroutine(LevelProcessor());
     }
 
     private void Update()
@@ -119,19 +129,24 @@ public class LevelSystem : MonoBehaviour
         }
     }
 
-    IEnumerator StartTime()
+    IEnumerator LevelProcessor()
     {
-        for (int i = 0; i < Level.usingLevel.objs.Length; i++)
+        for (int i = 0; i < Level.usingLevel.commands.Length; i++)
         {
-            yield return new WaitUntil(() => Time2.elapsed >= Level.usingLevel.objs[i].time);
-            var obj = Instantiate(Level.usingLevel.objs[i].spawnObj, container);
-            var trans = obj.transform;
-            trans.localPosition = Level.usingLevel.objs[i].position;
-            trans.localRotation = Quaternion.Euler(Level.usingLevel.objs[i].rotation);
-            trans.localScale = Level.usingLevel.objs[i].scale;
-            var iso = obj.GetComponent<ISpawnedObject>();
-            if (iso != null)
-                iso.OnSpawned(Level.usingLevel.objs[i].args);
+            yield return new WaitUntil(() => Time2.elapsed >= Level.usingLevel.commands[i].time);
+            InterpretCommand(Level.usingLevel.commands[i], i);
+        }
+    }
+
+    void InterpretCommand(Command command, int line)
+    {
+        try
+        {
+            commands[command.command].Invoke(command.args);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Line {line}: {e}");
         }
     }
 }

@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 1, b: 1, a: 0.54901963}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -246,6 +247,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -471,6 +473,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -544,6 +547,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -849,7 +853,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &755232065
 GameObject:
@@ -959,6 +963,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1082,6 +1087,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 0.15686275}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1234,113 +1240,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9845e09a1d1cc94f9efb5dbf5cbada6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levels:
-  - songName: '?'
-    author: UserTCQ
-    song: {fileID: 8300000, guid: 7a07df0e4f7de714ebe59f9b1d4eeb53, type: 3}
-    levelLength: 10
-    objs: []
-  - songName: hello
-    author: UserTCQ
-    song: {fileID: 8300000, guid: 7a07df0e4f7de714ebe59f9b1d4eeb53, type: 3}
-    levelLength: 10
-    objs: []
-  - songName: so.
-    author: UserTCQ
-    song: {fileID: 8300000, guid: 7a07df0e4f7de714ebe59f9b1d4eeb53, type: 3}
-    levelLength: 10
-    objs: []
-  - songName: this is
-    author: UserTCQ
-    song: {fileID: 8300000, guid: 7a07df0e4f7de714ebe59f9b1d4eeb53, type: 3}
-    levelLength: 10
-    objs: []
-  - songName: a test
-    author: UserTCQ
-    song: {fileID: 8300000, guid: 7a07df0e4f7de714ebe59f9b1d4eeb53, type: 3}
-    levelLength: 10
-    objs: []
-  - songName: just a test
-    author: UserTCQ
-    song: {fileID: 8300000, guid: 7a07df0e4f7de714ebe59f9b1d4eeb53, type: 3}
-    levelLength: 10
-    objs: []
-  - songName: yes. this is a test. stop reading
-    author: UserTCQ
-    song: {fileID: 8300000, guid: 7a07df0e4f7de714ebe59f9b1d4eeb53, type: 3}
-    levelLength: 10
-    objs: []
-  - songName: can you just STOP???
-    author: UserTCQ
-    song: {fileID: 8300000, guid: 7a07df0e4f7de714ebe59f9b1d4eeb53, type: 3}
-    levelLength: 10
-    objs: []
-  - songName: please....
-    author: UserTCQ
-    song: {fileID: 8300000, guid: 7a07df0e4f7de714ebe59f9b1d4eeb53, type: 3}
-    levelLength: 10
-    objs: []
-  - songName: why are you even scrolling down?
-    author: UserTCQ
-    song: {fileID: 8300000, guid: 7a07df0e4f7de714ebe59f9b1d4eeb53, type: 3}
-    levelLength: 10
-    objs: []
-  - songName: it's pointless
-    author: UserTCQ
-    song: {fileID: 8300000, guid: 7a07df0e4f7de714ebe59f9b1d4eeb53, type: 3}
-    levelLength: 10
-    objs: []
-  - songName: my game really sucks
-    author: UserTCQ
-    song: {fileID: 8300000, guid: 7a07df0e4f7de714ebe59f9b1d4eeb53, type: 3}
-    levelLength: 10
-    objs: []
-  - songName: i'm serious
-    author: UserTCQ
-    song: {fileID: 8300000, guid: 7a07df0e4f7de714ebe59f9b1d4eeb53, type: 3}
-    levelLength: 10
-    objs: []
-  - songName: stop scrolling PLEASE
-    author: UserTCQ
-    song: {fileID: 8300000, guid: 7a07df0e4f7de714ebe59f9b1d4eeb53, type: 3}
-    levelLength: 10
-    objs: []
-  - songName: '*sobs in pain*'
-    author: UserTCQ
-    song: {fileID: 8300000, guid: 7a07df0e4f7de714ebe59f9b1d4eeb53, type: 3}
-    levelLength: 10
-    objs: []
-  - songName: i have cancer
-    author: UserTCQ
-    song: {fileID: 8300000, guid: 7a07df0e4f7de714ebe59f9b1d4eeb53, type: 3}
-    levelLength: 10
-    objs: []
-  - songName: please.. stop.. SCROLLING
-    author: UserTCQ
-    song: {fileID: 8300000, guid: 7a07df0e4f7de714ebe59f9b1d4eeb53, type: 3}
-    levelLength: 10
-    objs: []
-  - songName: ok. stop. or else i will
-    author: UserTCQ
-    song: {fileID: 8300000, guid: 7a07df0e4f7de714ebe59f9b1d4eeb53, type: 3}
-    levelLength: 10
-    objs: []
-  - songName: say this to you
-    author: UserTCQ
-    song: {fileID: 8300000, guid: 7a07df0e4f7de714ebe59f9b1d4eeb53, type: 3}
-    levelLength: 10
-    objs: []
-  - songName: yamete uh~, onii~uh, onii-chan!!
-    author: UserTCQ
-    song: {fileID: 8300000, guid: 7a07df0e4f7de714ebe59f9b1d4eeb53, type: 3}
-    levelLength: 10
-    objs: []
+  levels: []
   selectedLevel:
     songName: null
     author: null
     song: {fileID: 0}
     levelLength: 0
-    objs: []
+    commands: []
   buttonOffsetY: -25
   buttonOffsetX: 0
   buttonPrefab: {fileID: 9154116485388124178}
@@ -1398,6 +1304,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1604,6 +1511,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 1, b: 1, a: 0.078431375}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1733,6 +1641,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1765,6 +1674,7 @@ GameObject:
   - component: {fileID: 1498046906}
   - component: {fileID: 1498046905}
   - component: {fileID: 1498046907}
+  - component: {fileID: 1498046908}
   m_Layer: 0
   m_Name: Holder
   m_TagString: Untagged
@@ -1796,7 +1706,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1498046907
 MonoBehaviour:
@@ -1810,6 +1720,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56dfe9b7fe830f74983edfdf4925fff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1498046908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498046904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a911337aebef84683f3df418694837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listScript: {fileID: 1185352777}
 --- !u!1 &1576806941
 GameObject:
   m_ObjectHideFlags: 0
@@ -1877,6 +1800,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1950,6 +1874,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2215,6 +2140,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 1, b: 1, a: 0.25490198}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2296,6 +2222,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2426,6 +2353,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0.7058824, b: 0.7058824, a: 0.23529412}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2546,6 +2474,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
