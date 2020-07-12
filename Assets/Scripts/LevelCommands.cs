@@ -8,7 +8,6 @@ public class LevelCommands : MonoBehaviour
     [Header("spawn command")]
     [SerializeField]
     private Dictionary<string, GameObject> objects;
-
     [SerializeField]
     private Transform objContainer;
 

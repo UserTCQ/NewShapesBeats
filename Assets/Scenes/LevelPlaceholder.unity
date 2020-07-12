@@ -1958,29 +1958,9 @@ MonoBehaviour:
   level:
     songName: null
     author: null
-    song: {fileID: 8300000, guid: 7a07df0e4f7de714ebe59f9b1d4eeb53, type: 3}
+    song: {fileID: 0}
     levelLength: 150
-    commands:
-    - time: 2
-      command: spawn
-      args:
-      - 1
-    - time: 4
-      command: spawn
-      args:
-      - 2
-    - time: 6
-      command: spawn
-      args:
-      - 3
-    - time: 8
-      command: spawn
-      args:
-      - 4
-    - time: 10
-      command: spawn
-      args:
-      - 5
+    commands: []
 --- !u!4 &510892553
 Transform:
   m_ObjectHideFlags: 0
@@ -2007,7 +1987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5417f5157b83a654a910d351a24f0f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objContainer: {fileID: 0}
+  objContainer: {fileID: 956751315}
 --- !u!1 &518813002
 GameObject:
   m_ObjectHideFlags: 0
