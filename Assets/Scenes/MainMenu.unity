@@ -1244,7 +1244,7 @@ MonoBehaviour:
   selectedLevel:
     songName: null
     author: null
-    song: {fileID: 0}
+    song: 
     levelLength: 0
     commands: []
   buttonOffsetY: -25
