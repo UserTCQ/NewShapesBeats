@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Text.RegularExpressions;
+using System.Linq;
+using System;
 
 public class DevCommand : MonoBehaviour
 {
@@ -13,7 +16,11 @@ public class DevCommand : MonoBehaviour
     {
         if (focus && inputField.text != "" && Input.GetKey(KeyCode.Return))
         {
-            string[] cmdSplitted = inputField.text.Split(' ');
+            var cmdSplitted = inputField.text.Split('"')
+                     .Select((element, index) => index % 2 == 0
+                                           ? element.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                                           : new string[] { element })
+                     .SelectMany(element => element).ToArray();
 
             Command cmd = new Command();
             List<string> args = new List<string>();

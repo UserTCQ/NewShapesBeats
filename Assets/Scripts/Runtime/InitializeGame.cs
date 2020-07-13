@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -74,7 +77,12 @@ public class InitializeGame : MonoBehaviour
         Command[] cmds = new Command[cmdStrs.Length];
         for (int i = 0; i < cmdStrs.Length; i++)
         {
-            string[] cmdSplitted = cmdStrs[i].Split(' ');
+            var cmdSplitted = cmdStrs[i].Split('"')
+                     .Select((element, index) => index % 2 == 0 
+                                           ? element.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                                           : new string[] { element })
+                     .SelectMany(element => element).ToArray();
+
             List<string> args = new List<string>();
             cmds[i] = new Command();
             cmds[i].time = float.Parse(cmdSplitted[0]);

@@ -159,7 +159,7 @@ public class PlayerControl : MonoBehaviour
         float t = 60;
         while (t < 180)
         {
-            t += Time.deltaTime * 45;
+            t += Time.deltaTime * 30;
             musicSource.pitch = Mathf.Cos(t * Mathf.Deg2Rad) * 2f;
             yield return new WaitForEndOfFrame();
         }

@@ -993,7 +993,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.84000003}
   m_AnchorMax: {x: 0.28481382, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000015258789}
+  m_AnchoredPosition: {x: 0, y: 0.000030517578}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &235544434
@@ -2332,18 +2332,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
     _Buckets: ffffffff00000000ffffffff
-    _HashCodes: fe162a160000000000000000
+    _HashCodes: f244f90f0000000000000000
     _Next: ffffffff0000000000000000
     _Count: 1
-    _Version: 5
+    _Version: 42
     _FreeList: -1
     _FreeCount: 0
     _Keys:
-    - 
+    - laser_horizontal
     - 
     - 
     _Values:
-    - {fileID: 0}
+    - {fileID: 4991351867664079197, guid: f5ac2adf848566d42bfcc901f104e571, type: 3}
     - {fileID: 0}
     - {fileID: 0}
   objContainer: {fileID: 956751315}

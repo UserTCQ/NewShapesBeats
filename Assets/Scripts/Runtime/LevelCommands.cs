@@ -23,4 +23,12 @@ public class LevelCommands : MonoBehaviour
         var obj = Instantiate(objects[args[0]], objContainer);
         obj.GetComponent<ISpawnedObject>().OnSpawned(argsObj.ToArray());
     }
+
+    public void printargs(string[] args)
+    {
+        foreach (string arg in args)
+        {
+            Debug.Log(arg);
+        }
+    }
 }
