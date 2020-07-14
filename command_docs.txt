@@ -2,12 +2,24 @@ COMMANDS DOCUMENTATION
 
 spawn [object] [object arguments] ["->" [group] (optional)] : spawn new object
 	laser_horizontal (or vertical): [life (seconds)] [position] [scale]
-	rectangle: [alpha (integer value from 0 - 255)] [hit (true, false)]
-	
-move [group] [length] [position x] [position y] : move group of objects
+	rectangle: [position x] [position y] [scale x] [scale y] [rotation] [alpha (integer value from 0 - 255)] [hit (true, false)]
+	triangle: [position x] [position y] [scale x] [scale y] [rotation] [alpha (integer value from 0 - 255)] [hit (true, false)]
+	circle: [position x] [position y] [scale x] [scale y] [rotation] [alpha (integer value from 0 - 255)] [hit (true, false)]
+EXAMPLE: "spawn rectangle 0 0 1 1 0 255 true -> example_group"
+this command spawns a rectangle at normal scale with full opacity at the center of the screen, make it so that the player can hit it and puts it into a group called "example_group"
 
-scale [group] [length] [scale x] [scale y] : scale group of objects
+move [group] [length (seconds)] [position x] [position y] : move group of objects
+EXAMPLE: "move example_group 1 2 2"
+this command move "example_group" group to position 2 2 in 1 second
 
-rotate [group] [length] [rotation] : rotate group of objects
+scale [group] [length (seconds)] [scale x] [scale y] : scale group of objects
+EXAMPLE: "scale example_group 1 2 2"
+this command scales "example_group" group to double in 1 second
+
+rotate [group] [length (seconds)] [rotation] : rotate group of objects
+EXAMPLE: "rotate example_group 1 180"
+this command rotate "example_group" group to 180 degrees in 1 second
 
 destroy [group] : destroy group of objects
+EXAMPLE: "destroy example_group"
+this command destroys "example_group"

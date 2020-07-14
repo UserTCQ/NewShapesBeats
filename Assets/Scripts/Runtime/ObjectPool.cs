@@ -38,17 +38,18 @@ public class ObjectPool : MonoBehaviour
 
     public void Add(string objName, string group)
     {
-        var groupObj = new GameObject();
-        groupObj.transform.SetParent(objContainer);
-        var obj = Instantiate(objects[objName], groupObj.transform);
+        GameObject groupObj;
         try
         {
-            groups[group] = groupObj;
+            groupObj = groups[group];
         }
-        catch (System.NullReferenceException)
+        catch (KeyNotFoundException)
         {
+            groupObj = new GameObject();
+            groupObj.transform.SetParent(objContainer);
             groups.Add(group, groupObj);
         }
+        var obj = Instantiate(objects[objName], groupObj.transform);
         obj.SetActive(false);
         pool.Add(new PooledObject(objName, obj));
     }
@@ -71,24 +72,26 @@ public class ObjectPool : MonoBehaviour
     public GameObject Spawn(string objName, string group)
     {
         var pooledObject = pool.Find(x => x.name == objName);
+        GameObject groupObj;
+        try
+        {
+            groupObj = groups[group];
+        }
+        catch (KeyNotFoundException)
+        {
+            groupObj = new GameObject();
+            groupObj.transform.SetParent(objContainer);
+            groups.Add(group, groupObj);
+        }
         if (pooledObject != null)
         {
             pool.Remove(pooledObject);
+            pooledObject.obj.transform.SetParent(groupObj.transform);
             pooledObject.obj.SetActive(true);
             return pooledObject.obj;
         }
         else
-        {
-            var groupObj = new GameObject();
-            groupObj.transform.SetParent(objContainer);
-            try
-            {
-                groups[group] = groupObj;
-            }
-            catch (System.NullReferenceException)
-            {
-                groups.Add(group, groupObj);
-            }
+        { 
             return Instantiate(objects[objName], groupObj.transform);
         }
     }

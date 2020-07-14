@@ -9,23 +9,26 @@ public class LevelCommands : MonoBehaviour
     {
         List<string> argsObj = new List<string>();
 
-        for (int i = 1; i < args.Length; i++)
-        {
-            argsObj.Add(args[i]);
-        }
+        int argSize = args.Length;
 
         GameObject obj;
-            if (args.Length >= 2)
+        if (args.Length >= 2)
+        {
+            if (args[args.Length - 2] == "->")
             {
-                if (args[args.Length - 2] == "->")
-                {
-                    obj = ObjectPool.currentPool.Spawn(args[0], args[args.Length - 1]);
-                }
-                else
-                    obj = ObjectPool.currentPool.Spawn(args[0]);
+                obj = ObjectPool.currentPool.Spawn(args[0], args[args.Length - 1]);
+                argSize -= 2;
             }
             else
                 obj = ObjectPool.currentPool.Spawn(args[0]);
+        }
+        else
+            obj = ObjectPool.currentPool.Spawn(args[0]);
+
+        for (int i = 1; i < argSize; i++)
+        {
+            argsObj.Add(args[i]);
+        }
         obj.GetComponent<ISpawnedObject>().OnSpawned(argsObj.ToArray(), this);
     }
 

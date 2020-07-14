@@ -2304,8 +2304,8 @@ MonoBehaviour:
   level:
     songName: null
     author: null
-    song: C:\Users\UserTCQ\Documents\GitHub\NewShapesBeats\Assets\StreamingAssets\Deadlocked\song.ogg
-    levelLength: 300
+    song: 
+    levelLength: 0
     commands: []
 --- !u!4 &510892553
 Transform:
@@ -2346,20 +2346,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objects:
-    _Buckets: ffffffff01000000ffffffff
-    _HashCodes: f244f90f847cb17b00000000
-    _Next: ffffffff0000000000000000
-    _Count: 2
-    _Version: 64
+    _Buckets: ffffffffffffffffffffffffffffffff020000000300000004000000
+    _HashCodes: f244f90f847cb17ba5252e759eddc10cea8dbc710000000000000000
+    _Next: ffffffffffffffffffffffff00000000010000000000000000000000
+    _Count: 5
+    _Version: 226
     _FreeList: -1
     _FreeCount: 0
     _Keys:
     - laser_horizontal
     - laser_vertical
+    - rectangle
+    - triangle
+    - circle
+    - 
     - 
     _Values:
     - {fileID: 2018950916120162021, guid: 87d16d014c1fc9d4081a6bb60de263ee, type: 3}
     - {fileID: 2018950916120162021, guid: 38d5acf9f8753854abd0774f83cb3711, type: 3}
+    - {fileID: 5382078092631973247, guid: 32ec6e7bfde14d346a27eca841af12bc, type: 3}
+    - {fileID: 5382078092631973247, guid: 820d1f3649fc0a546907fecc819341e1, type: 3}
+    - {fileID: 5382078092631973247, guid: 98cc9bbb10548534cb19b9cc4b361cec, type: 3}
+    - {fileID: 0}
     - {fileID: 0}
   objContainer: {fileID: 956751315}
 --- !u!1 &518813002

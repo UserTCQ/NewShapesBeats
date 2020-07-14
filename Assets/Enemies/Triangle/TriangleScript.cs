@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RectangleScript : MonoBehaviour, ISpawnedObject
+public class TriangleScript : MonoBehaviour, ISpawnedObject
 {
     public void OnSpawned(string[] args, object sender)
     {
