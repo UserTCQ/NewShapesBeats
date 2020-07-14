@@ -2305,15 +2305,8 @@ MonoBehaviour:
     songName: null
     author: null
     song: C:\Users\UserTCQ\Documents\GitHub\NewShapesBeats\Assets\StreamingAssets\Deadlocked\song.ogg
-    levelLength: 50
-    commands:
-    - time: 25
-      command: spawn
-      args:
-      - laser_horizontal
-      - 20
-      - 0
-      - 10
+    levelLength: 300
+    commands: []
 --- !u!4 &510892553
 Transform:
   m_ObjectHideFlags: 0
@@ -2340,7 +2333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5417f5157b83a654a910d351a24f0f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pool: {fileID: 510892555}
 --- !u!114 &510892555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2354,20 +2346,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objects:
-    _Buckets: ffffffff00000000ffffffff
-    _HashCodes: f244f90f0000000000000000
+    _Buckets: ffffffff01000000ffffffff
+    _HashCodes: f244f90f847cb17b00000000
     _Next: ffffffff0000000000000000
-    _Count: 1
-    _Version: 34
+    _Count: 2
+    _Version: 64
     _FreeList: -1
     _FreeCount: 0
     _Keys:
     - laser_horizontal
-    - 
+    - laser_vertical
     - 
     _Values:
     - {fileID: 2018950916120162021, guid: 87d16d014c1fc9d4081a6bb60de263ee, type: 3}
-    - {fileID: 0}
+    - {fileID: 2018950916120162021, guid: 38d5acf9f8753854abd0774f83cb3711, type: 3}
     - {fileID: 0}
   objContainer: {fileID: 956751315}
 --- !u!1 &518813002

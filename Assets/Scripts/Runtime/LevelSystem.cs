@@ -20,7 +20,7 @@ public class LevelSystem : MonoBehaviour
 
     public Transform endLine;
 
-    public SpawnPool pool;
+    public ObjectPool pool;
 
     public float minPos;
     public float maxPos;
@@ -68,7 +68,10 @@ public class LevelSystem : MonoBehaviour
         commands = new Dictionary<string, CommandHandler>()
         {
             { "spawn",  cmdClass.spawn },
-            { "printargs", cmdClass.printargs }
+            { "move", cmdClass.move },
+            { "scale", cmdClass.scale },
+            { "rotate", cmdClass.rotate },
+            { "destroy", cmdClass.destroy }
         };
 
         #region InitializePool
@@ -76,7 +79,17 @@ public class LevelSystem : MonoBehaviour
         {
             if (cmd.command == "spawn")
             {
-                pool.Add(cmd.args[0]);
+                if (cmd.args.Length >= 2)
+                {
+                    if (cmd.args[cmd.args.Length - 2] == "->")
+                    {
+                        pool.Add(cmd.args[0], cmd.args[cmd.args.Length - 1]);
+                    }
+                    else
+                        pool.Add(cmd.args[0]);
+                }
+                else
+                    pool.Add(cmd.args[0]);
             }
         }
         #endregion
@@ -164,6 +177,7 @@ public class LevelSystem : MonoBehaviour
                     break;
             }
         }
+        
         commands[command.command].Invoke(command.args);
     }
 }

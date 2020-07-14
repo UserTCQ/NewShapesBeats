@@ -1,0 +1,13 @@
+COMMANDS DOCUMENTATION
+
+spawn [object] [object arguments] ["->" [group] (optional)] : spawn new object
+	laser_horizontal (or vertical): [life (seconds)] [position] [scale]
+	rectangle: [alpha (integer value from 0 - 255)] [hit (true, false)]
+	
+move [group] [length] [position x] [position y] : move group of objects
+
+scale [group] [length] [scale x] [scale y] : scale group of objects
+
+rotate [group] [length] [rotation] : rotate group of objects
+
+destroy [group] : destroy group of objects

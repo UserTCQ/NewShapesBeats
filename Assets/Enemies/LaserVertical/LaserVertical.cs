@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserHorizontal : MonoBehaviour, ISpawnedObject
+public class LaserVertical : MonoBehaviour, ISpawnedObject
 {
     float dieTime = 0;
     float position = 0;
@@ -18,8 +18,8 @@ public class LaserHorizontal : MonoBehaviour, ISpawnedObject
 
         spawnTime = Time2.elapsed;
 
-        transform.localPosition = new Vector3(transform.localPosition.x, position, transform.localPosition.z);
-        transform.localScale = new Vector3(transform.localScale.x, scale, transform.localScale.z);
+        transform.localPosition = new Vector3(position, transform.localPosition.y, transform.localPosition.z);
+        transform.localScale = new Vector3(scale, transform.localScale.y,  transform.localScale.z);
 
         StartCoroutine(Laser());
     }
@@ -30,7 +30,7 @@ public class LaserHorizontal : MonoBehaviour, ISpawnedObject
         while (t < 1)
         {
             t = (Time2.elapsed - spawnTime) * 4;
-            transform.localPosition = new Vector3(Mathf.Lerp(transform.localPosition.x, 0, t), transform.localPosition.y, transform.localPosition.z);
+            transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Lerp(transform.localPosition.y, 0, t), transform.localPosition.z);
             yield return new WaitForEndOfFrame();
         }
         yield return new WaitUntil(() => Time2.elapsed >= spawnTime + dieTime);

@@ -158,7 +158,8 @@ public class PlayerControl : MonoBehaviour
         graphic.color = new Color(0, 0, 0, 0);
         shadow.color = new Color(0, 0, 0, 0);
 
-        StopCoroutine(LevelSystem.system.processor);
+        if (LevelSystem.system.processor != null)
+            StopCoroutine(LevelSystem.system.processor);
 
         float t = 60;
         while (t < 180)

@@ -64,6 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Enemies\LaserHorizontal\LaserHorizontal.cs" />
+    <Compile Include="Assets\Enemies\LaserVertical\LaserVertical.cs" />
+    <Compile Include="Assets\Enemies\Rectangle\RectangleScript.cs" />
     <Compile Include="Assets\Scripts\Runtime\Boundaries.cs" />
     <Compile Include="Assets\Scripts\Runtime\Buttons.cs" />
     <Compile Include="Assets\Scripts\Runtime\DevCommand.cs" />
@@ -78,13 +80,13 @@
     <Compile Include="Assets\Scripts\Runtime\LevelList.cs" />
     <Compile Include="Assets\Scripts\Runtime\LevelSystem.cs" />
     <Compile Include="Assets\Scripts\Runtime\MenuScript.cs" />
+    <Compile Include="Assets\Scripts\Runtime\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\Runtime\PauseScript.cs" />
     <Compile Include="Assets\Scripts\Runtime\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\Runtime\ProgressBar.cs" />
     <Compile Include="Assets\Scripts\Runtime\ScreenResolutions.cs" />
     <Compile Include="Assets\Scripts\Runtime\SerializableDictionary.cs" />
     <Compile Include="Assets\Scripts\Runtime\ShadowScript.cs" />
-    <Compile Include="Assets\Scripts\Runtime\SpawnPool.cs" />
     <Compile Include="Assets\Scripts\Runtime\TestScript.cs" />
     <Compile Include="Assets\Scripts\Runtime\TextSync.cs" />
     <Compile Include="Assets\Scripts\Runtime\Types.cs" />
