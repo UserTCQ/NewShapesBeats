@@ -5,11 +5,6 @@ using UnityEngine;
 
 public class LevelCommands : MonoBehaviour
 {
-    [Header("spawn command")]
-    [SerializeField]
-    private StringGameObjectDictionary objects;
-    [SerializeField]
-    private Transform objContainer;
 
     public void spawn(string[] args)
     {
@@ -20,8 +15,8 @@ public class LevelCommands : MonoBehaviour
             argsObj.Add(args[i]);
         }
 
-        var obj = Instantiate(objects[args[0]], objContainer);
-        obj.GetComponent<ISpawnedObject>().OnSpawned(argsObj.ToArray());
+        var obj = SpawnPool.currentPool.Spawn(args[0]);
+        obj.GetComponent<ISpawnedObject>().OnSpawned(argsObj.ToArray(), this);
     }
 
     public void printargs(string[] args)

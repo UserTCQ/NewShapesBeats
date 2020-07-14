@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface ISpawnedObject 
 {
-    void OnSpawned(string[] args);
+    void OnSpawned(string[] args, object sender);
 }

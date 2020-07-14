@@ -20,6 +20,8 @@ public class LevelSystem : MonoBehaviour
 
     public Transform endLine;
 
+    public SpawnPool pool;
+
     public float minPos;
     public float maxPos;
     public float scrollSpeed;
@@ -35,13 +37,15 @@ public class LevelSystem : MonoBehaviour
     [SerializeField]
     private List<GameObject> objectsToDisable;
 
-    private bool stop = false;
+    public bool stop = false;
 
 #if UNITY_EDITOR
     [SerializeField]
     private bool bypass = false;
     public Level level;
 #endif
+
+    public Coroutine processor;
 
     void Start()
     {
@@ -67,7 +71,17 @@ public class LevelSystem : MonoBehaviour
             { "printargs", cmdClass.printargs }
         };
 
-        StartCoroutine(LevelProcessor());
+        #region InitializePool
+        foreach (var cmd in Level.usingLevel.commands)
+        {
+            if (cmd.command == "spawn")
+            {
+                pool.Add(cmd.args[0]);
+            }
+        }
+        #endregion
+
+        processor = StartCoroutine(LevelProcessor());
     }
 
     private void Update()

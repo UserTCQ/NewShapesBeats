@@ -10,7 +10,7 @@ public class LaserHorizontal : MonoBehaviour, ISpawnedObject
 
     float spawnTime;
 
-    public void OnSpawned(string[] args)
+    public void OnSpawned(string[] args, object sender)
     {
         dieTime = float.Parse(args[0]);
         position = float.Parse(args[1]);

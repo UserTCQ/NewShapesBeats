@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\Runtime\ScreenResolutions.cs" />
     <Compile Include="Assets\Scripts\Runtime\SerializableDictionary.cs" />
     <Compile Include="Assets\Scripts\Runtime\ShadowScript.cs" />
+    <Compile Include="Assets\Scripts\Runtime\SpawnPool.cs" />
     <Compile Include="Assets\Scripts\Runtime\TestScript.cs" />
     <Compile Include="Assets\Scripts\Runtime\TextSync.cs" />
     <Compile Include="Assets\Scripts\Runtime\Types.cs" />

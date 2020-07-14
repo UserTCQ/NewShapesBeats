@@ -152,9 +152,13 @@ public class PlayerControl : MonoBehaviour
     public IEnumerator die()
     {
         PauseScript.pausable = false;
+        LevelSystem.system.stop = true;
+        Time2.elapsed = 0;
         controllable = false;
         graphic.color = new Color(0, 0, 0, 0);
         shadow.color = new Color(0, 0, 0, 0);
+
+        StopCoroutine(LevelSystem.system.processor);
 
         float t = 60;
         while (t < 180)
