@@ -39,7 +39,14 @@ public class LevelCommands : MonoBehaviour
 
         var group = ObjectPool.currentPool.groups[args[0]];
 
-        StartCoroutine(move());
+        if (length > 0)
+        {
+            StartCoroutine(move());
+        }
+        else
+        {
+            group.transform.localPosition = newPos;
+        }
         
         IEnumerator move()
         {
@@ -61,7 +68,14 @@ public class LevelCommands : MonoBehaviour
 
         var group = ObjectPool.currentPool.groups[args[0]];
 
-        StartCoroutine(scale());
+        if (length > 0)
+        {
+            StartCoroutine(scale());
+        }
+        else
+        {
+            group.transform.localScale = newScale;
+        }
 
         IEnumerator scale()
         {
@@ -83,7 +97,14 @@ public class LevelCommands : MonoBehaviour
 
         var group = ObjectPool.currentPool.groups[args[0]];
 
-        StartCoroutine(rotate());
+        if (length > 0) 
+        {
+            StartCoroutine(rotate());
+        }
+        else
+        {
+            group.transform.localRotation = Quaternion.Euler(0, 0, newRotation);
+        }
 
         IEnumerator rotate()
         {

@@ -91,6 +91,19 @@ public class LevelSystem : MonoBehaviour
                 else
                     pool.Add(cmd.args[0]);
             }
+
+            for (int i = 0; i < cmd.args.Length; i++)
+            {
+                switch (cmd.args[i])
+                {
+                    case "$rndx":
+                        cmd.args[i] = Random.Range(-9.6f, 9.6f).ToString();
+                        break;
+                    case "$rndy":
+                        cmd.args[i] = Random.Range(-5.4f, 5.4f).ToString();
+                        break;
+                }
+            }
         }
         #endregion
 
@@ -165,19 +178,6 @@ public class LevelSystem : MonoBehaviour
 
     public void InterpretCommand(Command command)
     {
-        for (int i = 0; i < command.args.Length; i++)
-        {
-            switch (command.args[i]) 
-            {
-                case "rndx":
-                    command.args[i] = Random.Range(-9.6f, 9.6f).ToString();
-                    break;
-                case "rndy":
-                    command.args[i] = Random.Range(-5.4f, 5.4f).ToString();
-                    break;
-            }
-        }
-        
         commands[command.command].Invoke(command.args);
     }
 }

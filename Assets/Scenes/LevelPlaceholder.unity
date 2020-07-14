@@ -2300,7 +2300,7 @@ MonoBehaviour:
   - {fileID: 1169362856}
   - {fileID: 965951150}
   stop: 0
-  bypass: 1
+  bypass: 0
   level:
     songName: null
     author: null
