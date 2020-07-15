@@ -7,7 +7,7 @@ public class PlayerControl : MonoBehaviour
 {
     public static PlayerControl player;
 
-    public static bool controllable = true;
+    public bool controllable = true;
 
     public float speed;
     public float rotSpeed;

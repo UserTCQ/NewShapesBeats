@@ -61,7 +61,7 @@ public class LevelSystem : MonoBehaviour
         source.Play();
 #else
         WWW w = new WWW(Level.usingLevel.song);
-        source.clip = w.GetAudioClip();
+        source.clip = w.GetAudioClip(true, true);
         source.Play();
 #endif
 
