@@ -18,6 +18,7 @@ public class Level
     public string songName = "null";
     public string author = "null";
     public string song;
+    public string customObjsDir;
     public float levelLength;
     public Command[] commands;
 }

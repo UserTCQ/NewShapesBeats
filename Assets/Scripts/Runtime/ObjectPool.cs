@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class PooledObject
 {
@@ -20,6 +21,9 @@ public class ObjectPool : MonoBehaviour
 
     private List<PooledObject> pool = new List<PooledObject>();
 
+    public GameObject customObjectPrefab;
+    public Transform customContainer;
+
     public StringGameObjectDictionary objects;
     public Dictionary<string, GameObject> groups = new Dictionary<string, GameObject>();
     public Transform objContainer;
@@ -27,6 +31,19 @@ public class ObjectPool : MonoBehaviour
     public void Start()
     {
         currentPool = this;
+        if (Directory.Exists(Level.usingLevel.customObjsDir))
+        {
+            DirectoryInfo d = new DirectoryInfo(Level.usingLevel.customObjsDir);
+            FileInfo[] files = d.GetFiles("*.png");
+            foreach (var f in files)
+            {
+                WWW w = new WWW("file:///" + Level.usingLevel.customObjsDir + f.Name);
+                var s = Sprite.Create(w.texture, new Rect(0, 0, w.texture.width, w.texture.height), new Vector2(0.5f, 0.5f));
+                var obj = Instantiate(customObjectPrefab, customContainer);
+                obj.GetComponent<SpriteRenderer>().sprite = s;
+                objects.Add(Path.GetFileNameWithoutExtension(f.Name), obj);
+            }
+        }
     }
 
     public void Add(string objName)

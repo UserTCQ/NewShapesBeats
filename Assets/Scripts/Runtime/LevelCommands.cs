@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class LevelCommands : MonoBehaviour
 {
+    [Header("shake command")]
+    public Transform camera;
+
     public void spawn(string[] args)
     {
         List<string> argsObj = new List<string>();
@@ -123,6 +126,52 @@ public class LevelCommands : MonoBehaviour
     {
         var group = ObjectPool.currentPool.groups[args[0]];
         Destroy(group);
-        group = null;
+        ObjectPool.currentPool.groups.Remove(args[0]);
+    }
+
+    public void shake(string[] args)
+    {
+        var length = float.Parse(args[0]);
+
+        if (length == 0)
+            return;
+
+        var npos = new Vector2(float.Parse(args[1]), float.Parse(args[2]));
+
+        StartCoroutine(shakeCam());
+
+        IEnumerator shakeCam()
+        {
+            float t = 0;
+            while (t < 180)
+            {
+                t += Time.deltaTime * 180 / length;
+                camera.position = Vector3.Lerp(new Vector3(0, 0, -10), new Vector3(npos.x, npos.y, -10), Mathf.Sin(t * 0.0174532925f));
+                yield return new WaitForEndOfFrame();
+            }
+        }
+    }
+
+    public void rotatecam(string[] args)
+    {
+        var length = float.Parse(args[0]);
+
+        if (length == 0)
+            return;
+
+        var nrot = float.Parse(args[1]);
+
+        StartCoroutine(camRotate());
+
+        IEnumerator camRotate()
+        {
+            float t = 0;
+            while (t < 180)
+            {
+                t += Time.deltaTime * 180 / length;
+                camera.rotation = Quaternion.Euler(0, 0, Mathf.Lerp(0, nrot, Mathf.Sin(t * 0.0174532925f)));
+                yield return new WaitForEndOfFrame();
+            }
+        }
     }
 }

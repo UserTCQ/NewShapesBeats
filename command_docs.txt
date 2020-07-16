@@ -5,6 +5,7 @@ spawn [object] [object arguments] ["->" [group] (optional)] : spawn new object
 	rectangle: [position x] [position y] [scale x] [scale y] [rotation] [color r] [color g] [color b] [color a] [hit (true, false)] (color: integer value from 0 - 255)
 	triangle: [position x] [position y] [scale x] [scale y] [rotation] [color r] [color g] [color b] [color a] [hit (true, false)] (color: integer value from 0 - 255)
 	circle: [position x] [position y] [scale x] [scale y] [rotation] [color r] [color g] [color b] [color a] [hit (true, false)] (color: integer value from 0 - 255)
+	<custom object name>: [position x] [position y] [scale x] [scale y] [rotation] [color r] [color g] [color b] [color a] (color: integer value from 0 - 255)
 EXAMPLE: "spawn rectangle 0 0 1 1 0 255 true -> example_group"
 this command spawns a rectangle at normal scale with full opacity at the center of the screen, make it so that the player can hit it and puts it into a group called "example_group"
 
@@ -23,3 +24,11 @@ this command rotate "example_group" group to 180 degrees in 1 second
 destroy [group] : destroy group of objects
 EXAMPLE: "destroy example_group"
 this command destroys "example_group"
+
+shake [length (seconds)] [shake x] [shake y] : camera shake effect
+EXAMPLE: "shake 0.25 0 1"
+this command shakes the camera up in 0.25 seconds
+
+rotatecam [length (seconds)] [rotation] : camera rotate effect
+EXAMPLE: "rotate 0.25 5"
+this command rotates the camera by 5 degrees in 0.25 seconds

@@ -55,6 +55,7 @@ public class InitializeGame : MonoBehaviour
         {
             Level lvl = new Level();
             ParseLevel(rawLevels[i], ref lvl);
+            lvl.customObjsDir = rawLevels[i].dir + "CustomObjects/";
             levels.Add(lvl);
         }
 
@@ -73,26 +74,34 @@ public class InitializeGame : MonoBehaviour
 
     private Command[] ParseLevelCommands(string levelCmds)
     {
-        string[] cmdStrs = levelCmds.Split('\n');
-        Command[] cmds = new Command[cmdStrs.Length];
+        string[] cmdStrs = levelCmds.Split(';');
+        List<Command> cmds = new List<Command>();
         for (int i = 0; i < cmdStrs.Length; i++)
         {
-            var cmdSplitted = cmdStrs[i].Split('"')
-                     .Select((element, index) => index % 2 == 0 
-                                           ? element.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                                           : new string[] { element })
-                     .SelectMany(element => element).ToArray();
-
-            List<string> args = new List<string>();
-            cmds[i] = new Command();
-            cmds[i].time = float.Parse(cmdSplitted[0]);
-            cmds[i].command = cmdSplitted[1];
-            for (int j = 2; j < cmdSplitted.Length; j++)
+            try
             {
-                args.Add(cmdSplitted[j]);
+                var cmdSplitted = cmdStrs[i].Split('"')
+                         .Select((element, index) => index % 2 == 0
+                                               ? element.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                                               : new string[] { element })
+                         .SelectMany(element => element).ToArray();
+
+                List<string> args = new List<string>();
+                var cmd = new Command();
+                cmd.time = float.Parse(cmdSplitted[0]);
+                cmd.command = cmdSplitted[1];
+                for (int j = 2; j < cmdSplitted.Length; j++)
+                {
+                    args.Add(cmdSplitted[j]);
+                }
+                cmd.args = args.ToArray();
+                cmds.Add(cmd);
             }
-            cmds[i].args = args.ToArray();
+            catch 
+            {
+                Debug.Log($"Line {i} failed to parse, skipping");
+            }
         }
-        return cmds;
+        return cmds.ToArray();
     }
 }

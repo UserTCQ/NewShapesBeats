@@ -4,6 +4,8 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Networking;
+using System;
+using Random = UnityEngine.Random;
 
 public static class Time2
 {
@@ -71,7 +73,9 @@ public class LevelSystem : MonoBehaviour
             { "move", cmdClass.move },
             { "scale", cmdClass.scale },
             { "rotate", cmdClass.rotate },
-            { "destroy", cmdClass.destroy }
+            { "destroy", cmdClass.destroy },
+            { "shake", cmdClass.shake },
+            { "rotatecam", cmdClass.rotatecam }
         };
 
         #region InitializePool
@@ -167,12 +171,25 @@ public class LevelSystem : MonoBehaviour
         }
     }
 
+    int i = 0;
+
     IEnumerator LevelProcessor()
     {
-        for (int i = 0; i < Level.usingLevel.commands.Length; i++)
+        while (i < Level.usingLevel.commands.Length)
         {
             yield return new WaitUntil(() => Time2.elapsed >= Level.usingLevel.commands[i].time);
-            InterpretCommand(Level.usingLevel.commands[i]);
+            while (i < Level.usingLevel.commands.Length && Time2.elapsed >= Level.usingLevel.commands[i].time)
+            {
+                try
+                {
+                    InterpretCommand(Level.usingLevel.commands[i]);
+                }
+                catch (Exception e) 
+                {
+                    Debug.LogError(e);
+                }
+                i++;
+            }
         }
     }
 
