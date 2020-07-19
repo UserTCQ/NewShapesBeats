@@ -1,7 +1,6 @@
 COMMANDS DOCUMENTATION
 
 spawn [object] [object arguments] ["->" [group] (optional)] : spawn new object
-	laser_horizontal (or vertical): [life (seconds)] [position] [scale]
 	rectangle: [position x] [position y] [scale x] [scale y] [rotation] [color r] [color g] [color b] [color a] [hit (true, false)] (color: integer value from 0 - 255)
 	triangle: [position x] [position y] [scale x] [scale y] [rotation] [color r] [color g] [color b] [color a] [hit (true, false)] (color: integer value from 0 - 255)
 	circle: [position x] [position y] [scale x] [scale y] [rotation] [color r] [color g] [color b] [color a] [hit (true, false)] (color: integer value from 0 - 255)
@@ -9,16 +8,16 @@ spawn [object] [object arguments] ["->" [group] (optional)] : spawn new object
 EXAMPLE: "spawn rectangle 0 0 1 1 0 255 true -> example_group"
 this command spawns a rectangle at normal scale with full opacity at the center of the screen, make it so that the player can hit it and puts it into a group called "example_group"
 
-move [group] [length (seconds)] [position x] [position y] : move group of objects
-EXAMPLE: "move example_group 1 2 2"
+move [group] [length (seconds)] [position x] [position y] [easing] : move group of objects
+EXAMPLE: "move example_group 1 2 2 easeout"
 this command move "example_group" group to position 2 2 in 1 second
 
-scale [group] [length (seconds)] [scale x] [scale y] : scale group of objects
-EXAMPLE: "scale example_group 1 2 2"
+scale [group] [length (seconds)] [scale x] [scale y] [easing] : scale group of objects
+EXAMPLE: "scale example_group 1 2 2 easeout"
 this command scales "example_group" group to double in 1 second
 
-rotate [group] [length (seconds)] [rotation] : rotate group of objects
-EXAMPLE: "rotate example_group 1 180"
+rotate [group] [length (seconds)] [rotation] [easing] : rotate group of objects
+EXAMPLE: "rotate example_group 1 180 easeout"
 this command rotate "example_group" group to 180 degrees in 1 second
 
 destroy [group] : destroy group of objects
@@ -32,3 +31,5 @@ this command shakes the camera up in 0.25 seconds
 rotatecam [length (seconds)] [rotation] : camera rotate effect
 EXAMPLE: "rotate 0.25 5"
 this command rotates the camera by 5 degrees in 0.25 seconds
+
+movecam [length(seconds)] [move x] [move y] 

@@ -6,7 +6,7 @@ public class TriangleScript : MonoBehaviour, ISpawnedObject
 {
     public void OnSpawned(string[] args, object sender)
     {
-        transform.localPosition = new Vector2(float.Parse(args[0]), float.Parse(args[1]));
+        transform.localPosition = new Vector3(float.Parse(args[0]), float.Parse(args[1]), transform.localPosition.z);
         transform.localScale = new Vector2(float.Parse(args[2]), float.Parse(args[3]));
         transform.localRotation = Quaternion.Euler(0, 0, float.Parse(args[4]));
         GetComponent<SpriteRenderer>().color = new Color32(byte.Parse(args[5]), byte.Parse(args[6]), byte.Parse(args[7]), byte.Parse(args[8]));

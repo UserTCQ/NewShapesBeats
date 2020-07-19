@@ -431,7 +431,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104279771}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6, y: 0, z: -1}
+  m_LocalPosition: {x: -6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 625637030}
@@ -2300,6 +2300,7 @@ MonoBehaviour:
   objectsToDisable:
   - {fileID: 1169362856}
   - {fileID: 965951150}
+  - {fileID: 956751314}
   stop: 0
   bypass: 0
   level:
@@ -2307,6 +2308,7 @@ MonoBehaviour:
     author: null
     song: C:\Users\UserTCQ\Documents\GitHub\NewShapesBeats\Assets\StreamingAssets\Deadlocked\song.ogg
     customObjsDir: 
+    animatedObjsDir: 
     levelLength: 114
     commands: []
 --- !u!4 &510892553
@@ -2348,28 +2350,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3dd10327dd220b4dac991e16281d1a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customObjectPrefab: {fileID: 709876310790550155, guid: 81482cc2bbd82af44aaac6c575f5c2a8,
+  customBasePrefab: {fileID: 709876310790550155, guid: 81482cc2bbd82af44aaac6c575f5c2a8,
+    type: 3}
+  animatedBasePrefab: {fileID: 7253386631782804653, guid: 9269a6405f9d3bb4eb73efc98dbdc040,
     type: 3}
   customContainer: {fileID: 1142796405}
   objects:
     _Buckets: ffffffffffffffffffffffffffffffff020000000300000004000000
-    _HashCodes: f244f90f847cb17ba5252e759eddc10cea8dbc710000000000000000
-    _Next: ffffffffffffffffffffffff00000000010000000000000000000000
+    _HashCodes: ffffffffffffffffa5252e759eddc10cea8dbc710000000000000000
+    _Next: ffffffff00000000ffffffffffffffffffffffff0000000000000000
     _Count: 5
-    _Version: 226
-    _FreeList: -1
-    _FreeCount: 0
+    _Version: 228
+    _FreeList: 1
+    _FreeCount: 2
     _Keys:
-    - laser_horizontal
-    - laser_vertical
+    - 
+    - 
     - rectangle
     - triangle
     - circle
     - 
     - 
     _Values:
-    - {fileID: 2018950916120162021, guid: 87d16d014c1fc9d4081a6bb60de263ee, type: 3}
-    - {fileID: 2018950916120162021, guid: 38d5acf9f8753854abd0774f83cb3711, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 5382078092631973247, guid: 32ec6e7bfde14d346a27eca841af12bc, type: 3}
     - {fileID: 5382078092631973247, guid: 820d1f3649fc0a546907fecc819341e1, type: 3}
     - {fileID: 5382078092631973247, guid: 98cc9bbb10548534cb19b9cc4b361cec, type: 3}
@@ -2527,7 +2531,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3376,7 +3380,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &711827691
 Transform:
   m_ObjectHideFlags: 0
@@ -4976,7 +4980,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956751314}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1283738417}
@@ -5060,7 +5064,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c1d5385a2a611dd4a8a6d8adcd5f665e, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
