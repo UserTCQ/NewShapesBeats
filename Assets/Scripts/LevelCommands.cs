@@ -121,7 +121,7 @@ public class LevelCommands : MonoBehaviour
 
     public void scale(string[] args)
     {
-        var newScale = new Vector2(float.Parse(args[2]), float.Parse(args[3]));
+        var newScale = new Vector3(float.Parse(args[2]), float.Parse(args[3]), 1);
         float length = float.Parse(args[1]);
 
         var group = ObjectPool.currentPool.groups[args[0]];
@@ -157,7 +157,7 @@ public class LevelCommands : MonoBehaviour
             while (t < 1)
             {
                 t = (Time2.elapsed - startTime) / length;
-                group.transform.localScale = Vector2.Lerp(oldScale, newScale, EaseIn(t));
+                group.transform.localScale = Vector3.Lerp(oldScale, newScale, EaseIn(t));
                 yield return new WaitForEndOfFrame();
             }
             group.transform.localScale = newScale;
@@ -170,7 +170,7 @@ public class LevelCommands : MonoBehaviour
             while (t < 1)
             {
                 t = (Time2.elapsed - startTime) / length;
-                group.transform.localScale = Vector2.Lerp(oldScale, newScale, EaseOut(t));
+                group.transform.localScale = Vector3.Lerp(oldScale, newScale, EaseOut(t));
                 yield return new WaitForEndOfFrame();
             }
             group.transform.localScale = newScale;
@@ -183,7 +183,7 @@ public class LevelCommands : MonoBehaviour
             while (t < 1)
             {
                 t = (Time2.elapsed - startTime) / length;
-                group.transform.localScale = Vector2.Lerp(oldScale, newScale, EaseInOut(t));
+                group.transform.localScale = Vector3.Lerp(oldScale, newScale, EaseInOut(t));
                 yield return new WaitForEndOfFrame();
             }
             group.transform.localScale = newScale;
@@ -196,7 +196,7 @@ public class LevelCommands : MonoBehaviour
             while (t < 1)
             {
                 t = (Time2.elapsed - startTime) / length;
-                group.transform.localScale = Vector2.Lerp(oldScale, newScale, t);
+                group.transform.localScale = Vector3.Lerp(oldScale, newScale, t);
                 yield return new WaitForEndOfFrame();
             }
             group.transform.localScale = newScale;
