@@ -152,8 +152,6 @@ public class PlayerControl : MonoBehaviour
     public IEnumerator die()
     {
         PauseScript.pausable = false;
-        LevelSystem.system.stop = true;
-        Time2.elapsed = 0;
         controllable = false;
         graphic.color = new Color(0, 0, 0, 0);
         shadow.color = new Color(0, 0, 0, 0);
@@ -162,14 +160,16 @@ public class PlayerControl : MonoBehaviour
             StopCoroutine(LevelSystem.system.processor);
 
         float t = 60;
-        while (t < 180)
+        while (t < 135)
         {
-            t += Time.deltaTime * 30;
+            t += Time.deltaTime * 60;
             musicSource.pitch = Mathf.Cos(t * Mathf.Deg2Rad) * 2f;
             yield return new WaitForEndOfFrame();
         }
 
         yield return new WaitForSeconds(0.25f);
+        LevelSystem.system.stop = true;
+        Time2.elapsed = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

@@ -8,8 +8,6 @@ public class Buttons : MonoBehaviour
     public void Retry()
     {
         PauseScript.psystem.UnPause();
-        LevelSystem.system.stop = true;
-        Time2.elapsed = 0;
         StartCoroutine(PlayerControl.player.die());
     }
 
