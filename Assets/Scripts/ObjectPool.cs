@@ -43,7 +43,7 @@ public class ObjectPool : MonoBehaviour
                 List<Sprite> frames = new List<Sprite>();
                 foreach (var f in files)
                 {
-                    WWW w = new WWW("file:///" + dir + "/" + f.Name);
+                    WWW w = new WWW("file://" + dir + "/" + f.Name);
                     frames.Add(Sprite.Create(w.texture, new Rect(0, 0, w.texture.width, w.texture.height), new Vector2(0.5f, 0.5f)));
                 }
                 var obj = Instantiate(animatedBasePrefab, customContainer);
@@ -59,7 +59,7 @@ public class ObjectPool : MonoBehaviour
             FileInfo[] files = d.GetFiles("*.png");
             foreach (var f in files)
             {
-                WWW w = new WWW("file:///" + Level.usingLevel.customObjsDir + f.Name);
+                WWW w = new WWW("file://" + Level.usingLevel.customObjsDir + f.Name);
                 var s = Sprite.Create(w.texture, new Rect(0, 0, w.texture.width, w.texture.height), new Vector2(0.5f, 0.5f));
                 var obj = Instantiate(customBasePrefab, customContainer);
                 obj.SetActive(false);

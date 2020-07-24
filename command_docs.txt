@@ -1,6 +1,6 @@
 COMMANDS DOCUMENTATION
 
-spawn [object] [object arguments] ["->" [group] (optional)] : spawn new object
+spawn [layer] [object] [object arguments] ["->" [group] (optional)] : spawn new object
 	rectangle: [position x] [position y] [scale x] [scale y] [rotation] [color r] [color g] [color b] [color a] [hit (true, false)] (color: integer value from 0 - 255)
 	triangle: [position x] [position y] [scale x] [scale y] [rotation] [color r] [color g] [color b] [color a] [hit (true, false)] (color: integer value from 0 - 255)
 	circle: [position x] [position y] [scale x] [scale y] [rotation] [color r] [color g] [color b] [color a] [hit (true, false)] (color: integer value from 0 - 255)

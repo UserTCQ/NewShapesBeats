@@ -59,9 +59,9 @@ public class LevelSystem : MonoBehaviour
             Level.usingLevel = level;
         }
 #endif
-        WWW w = new WWW(Level.usingLevel.song);
+        WWW w = new WWW("file://" + Level.usingLevel.song);
         while (!w.isDone) { }
-        source.clip = w.GetAudioClip(true, false);
+        source.clip = w.GetAudioClip(true, false, AudioType.OGGVORBIS);
         source.Play();
 
         commands = new Dictionary<string, CommandHandler>()

@@ -556,7 +556,8 @@ PlayerSettings:
   scriptingBackend: {}
   il2cppCompilerConfiguration:
     WebGL: 1
-  managedStrippingLevel: {}
+  managedStrippingLevel:
+    Standalone: 2
   incrementalIl2cppBuild: {}
   allowUnsafeCode: 0
   additionalIl2CppArgs: 
